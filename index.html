@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Krishna Prasad Raveendran</title>
+<meta property="og:title" content="Krishna Prasad Raveendran">
+<meta property="og:description" content="Battery modeling and materials. M.S. Mechanical Engineering, University of Michigan.">
+<meta property="og:image" content="https://rkp2k00.github.io/poster.jpg">
+<meta property="og:url" content="https://rkp2k00.github.io/">
+<meta name="description" content="Battery modeling engineer and M.S. Mechanical Engineering student at the University of Michigan. Poster, letters, report and resume.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column; a lab-notebook feel — copper current-collector accent on cool graphite neutrals */
+:root {
+  --bg: #f6f7f8;
+  --surface: #ffffff;
+  --fg: #1b1f24;
+  --muted: #5b636d;
+  --line: #dde1e6;
+  --accent: #a4532a;        /* copper */
+  --accent-soft: #f3e6de;
+  --display: "Spectral", "Cambria", Georgia, serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14171b; --surface: #1c2026; --fg: #e8eaed; --muted: #9aa3ad;
+    --line: #2d333b; --accent: #e08a5c; --accent-soft: #3a2a21; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14171b; --surface: #1c2026; --fg: #e8eaed; --muted: #9aa3ad;
+  --line: #2d333b; --accent: #e08a5c; --accent-soft: #3a2a21; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+img { max-width: 100%; }
+body {
+  background: var(--bg); color: var(--fg);
+  font: 400 1rem/1.6 var(--body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+}
+.wrap { max-width: 860px; margin: 0 auto; padding-block: 56px 72px; display: grid; gap: 56px; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+header { display: grid; gap: 14px; }
+.eyebrow { font: 500 .75rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font: 600 clamp(2rem, 5vw, 2.9rem)/1.1 var(--display); margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+.lede { margin: 0; color: var(--muted); max-width: 62ch; font-size: 1.05rem; }
+.contact { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 6px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px;
+  border: 1px solid var(--line); border-radius: 999px; background: var(--surface);
+  color: var(--fg); text-decoration: none; font-size: .9rem; font-weight: 500;
+}
+.chip:hover { border-color: var(--accent); color: var(--accent); }
+.email { font-family: var(--mono); font-size: .85rem; user-select: all; }
+button.chip { cursor: pointer; font-family: var(--body); }
+
+section { display: grid; gap: 18px; }
+h2 { font: 600 1.35rem/1.2 var(--display); margin: 0; display: flex; align-items: baseline; gap: 12px; }
+h2 .count { font: 400 .8rem/1 var(--mono); color: var(--muted); }
+
+.poster { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.poster-meta { padding: 22px 24px; display: grid; gap: 10px; }
+.poster-meta h3 { font: 500 1.2rem/1.35 var(--display); margin: 0; text-wrap: balance; }
+.poster-meta p { margin: 0; color: var(--muted); font-size: .95rem; }
+.metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.metric { padding: 16px 20px; display: grid; gap: 4px; min-width: 0; }
+.metric + .metric { border-left: 1px solid var(--line); }
+.metric b { font: 500 1.4rem/1.1 var(--mono); color: var(--accent); font-variant-numeric: tabular-nums; }
+.metric span { font-size: .82rem; color: var(--muted); }
+.poster img { display: block; width: 100%; height: auto; max-width: 100%; }
+.poster-actions { padding: 16px 24px; display: flex; flex-wrap: wrap; gap: 10px; border-top: 1px solid var(--line); }
+
+.docs { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.docs li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 20px; align-items: center; padding: 16px 2px; border-bottom: 1px solid var(--line); }
+.docs .org { font-weight: 600; }
+.docs .role { color: var(--muted); font-size: .92rem; }
+.docs .when { font: 400 .8rem/1.4 var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.docs a.open { font-weight: 500; font-size: .92rem; white-space: nowrap; }
+
+.research { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 22px 24px; display: grid; gap: 10px; }
+.research h3 { font: 500 1.2rem/1.35 var(--display); margin: 0; text-wrap: balance; }
+.research p { margin: 0; color: var(--muted); }
+.research ul { margin: 4px 0 0; padding-left: 1.2em; display: grid; gap: 6px; }
+footer { color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line); padding-top: 20px; }
+
+@media (max-width: 560px) {
+  .wrap { padding-block: 32px 48px; gap: 44px; }
+  .metrics { grid-template-columns: minmax(0, 1fr); }
+  .metric + .metric { border-left: 0; border-top: 1px solid var(--line); }
+  .docs li { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: no-preference) { .chip { transition: border-color .15s, color .15s; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Battery modeling · Battery materials</div>
+    <h1>Krishna Prasad Raveendran</h1>
+    <p class="lede">M.S. Mechanical Engineering student and Graduate Research Assistant in the Battery Control Group at the University of Michigan, Ann Arbor, with three years of industry experience building and parameterizing DFN/P2D models for NMC, NCMA and LFP cells, from cell teardown to BMS deployment.</p>
+    <div class="contact">
+      <a class="chip" href="https://www.linkedin.com/in/krishna-prasad-r/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="chip" href="https://github.com/rkp2k00" target="_blank" rel="noopener">GitHub</a>
+      <a class="chip" href="Krishna_Prasad_Raveendran_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+      <button class="chip" id="copy-email" type="button" aria-label="Copy email address"><span class="email">raveendran.krishnaprasad@gmail.com</span></button>
+    </div>
+  </header>
+
+  <section aria-labelledby="research-h">
+    <h2 id="research-h">Current research <span class="count">Aug 2026 – present</span></h2>
+    <article class="research">
+      <div class="eyebrow">Battery Control Group · University of Michigan · Advisor: Prof. Anna Stefanopoulou</div>
+      <h3>State of charge estimation in silicon–graphite batteries: a unified framework accounting for degradation modes and hysteresis</h3>
+      <ul>
+        <li>Developing an SOC estimation framework for Si–Gr cells that captures silicon charge/discharge voltage hysteresis.</li>
+        <li>Tracking degradation modes (LLI, LAM in graphite and silicon) so SOC estimates remain accurate as the cell ages.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section aria-labelledby="poster-h">
+    <h2 id="poster-h">Conference poster <span class="count">Oct 2026</span></h2>
+    <article class="poster">
+      <div class="poster-meta">
+        <div class="eyebrow">PyBaMM Battery Modelling Conference 2026 · University of Michigan, Ann Arbor</div>
+        <h3>DFN Parameterization and Validation of a High-Energy NCMA | Gr-SiO<sub>x</sub> 21700 Cell</h3>
+        <p>An open-source PyBaMM workflow for the BAK CG-50 cell at beginning of life: teardown and coin-cell rebuild, MSMR deconvolution of the composite-anode OCP into graphite and SiO<sub>x</sub>, full-cell OCV balancing, and validation against C-rate tests and a real immersion-cooled pack drive cycle.</p>
+      </div>
+      <div class="metrics">
+        <div class="metric"><b>9.12 mV</b><span>Full-cell OCV RMSE</span></div>
+        <div class="metric"><b>15 mV</b><span>Average C-rate RMSE (0.5C–1.5C)</span></div>
+        <div class="metric"><b>14.8 mV</b><span>Pack drive-cycle RMSE</span></div>
+      </div>
+      <img src="poster.jpg" alt="Poster: DFN Parameterization and Validation of a High-Energy NCMA / Gr-SiOx 21700 Cell" width="2000" height="1600" loading="eager">
+      <div class="poster-actions">
+        <a class="chip" href="Raveendran_PyBaMM2026_Poster.pdf" target="_blank" rel="noopener">Open full poster (PDF)</a>
+      </div>
+    </article>
+  </section>
+
+  <section aria-labelledby="docs-h">
+    <h2 id="docs-h">Letters and reports <span class="count">4 documents</span></h2>
+    <ul class="docs">
+      <li>
+        <div><div class="org">EMO Energy</div><div class="role">Associate Cell Modeling Engineer · Employment letter</div><div class="when">Mar 2025 – Aug 2026</div></div>
+        <a class="open" href="https://drive.google.com/file/d/1cWA6paxcROtXOV2K21fw4tf--s04sjVE/view" target="_blank" rel="noopener">Open letter →</a>
+      </li>
+      <li>
+        <div><div class="org">SwitchUp Technologies</div><div class="role">Cell Modeling – Product Analyst · Experience letter</div><div class="when">Jun 2024 – Jan 2025</div></div>
+        <a class="open" href="https://drive.google.com/file/d/1XEjYmkmg-3_QrJvz0rb8CNaH3URAZJA1/view" target="_blank" rel="noopener">Open letter →</a>
+      </li>
+      <li>
+        <div><div class="org">Log9 Materials</div><div class="role">Cell Modeling and Design Engineer · Experience letter</div><div class="when">Feb 2023 – Apr 2024</div></div>
+        <a class="open" href="https://drive.google.com/file/d/1cBdPoxsh_v-Qwpzj2hZAM6hCUFeh1g95/view" target="_blank" rel="noopener">Open letter →</a>
+      </li>
+      <li>
+        <div><div class="org">Fraunhofer IWM, Freiburg</div><div class="role">Summer Research Intern · Internship report</div><div class="when">May 2022 – Aug 2022</div></div>
+        <a class="open" href="https://drive.google.com/file/d/1WT0Ol1hhAkiQFa5j69Un6zN2ZbP7_NTu/view" target="_blank" rel="noopener">Open report →</a>
+      </li>
+    </ul>
+  </section>
+
+  <footer>Krishna Prasad Raveendran · Ann Arbor, MI</footer>
+</div>
+
+<script>
+document.getElementById('copy-email').addEventListener('click', function () {
+  var btn = this, span = btn.querySelector('.email'), text = span.textContent;
+  function done() { span.textContent = 'Email copied'; setTimeout(function () { span.textContent = text; }, 1600); }
+  function fallback() {
+    try { var r = document.createRange(); r.selectNodeContents(span); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); } catch (e) {}
+  }
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else { fallback(); }
+  } catch (e) { fallback(); }
+});
+</script>
+
+</body>
+</html>
